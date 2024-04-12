@@ -1,0 +1,20 @@
+<li>
+    <img src="{{item.image}}" alt="{{item.title}}">
+    <div class="title">
+        <h2>{{item.title}}</h2>
+        <span>{{item.ml}}ml</span>
+        <div class="color" [style.borderColor]="item.color">
+            <span class="color-span" [style.backgroundColor]="item.color"></span>
+        </div>
+    </div>
+    <div class="count">
+        <span class="count-plus" (click)="countClick(item.id, true)">+</span>
+        <span class="count-span">{{item.count}}</span>
+        <span class="count-minus" (click)="countClick(item.id, false)">-</span>
+    </div>
+    <div class="price">
+        <p>${{item.price}}</p>
+        <a href="#"> Save for lates</a>
+        <button (click)="removeClick(item.id)" class="remove">Remove</button>
+    </div>
+</li>

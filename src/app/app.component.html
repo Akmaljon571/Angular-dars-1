@@ -1,0 +1,38 @@
+<div class="cart">
+  <header>
+    <h1>Shopping Cart</h1>
+    <button (click)="removeAll()">Remova all</button>
+  </header>
+  <main>
+    <ul>
+      @for (item of items; track $index) {
+      <app-item (removeEvent)="remove($event)" (countEvent)="count($event)" [item]="item"></app-item>
+      }
+    </ul>
+    <span></span>
+  </main>
+  <footer>
+    <div class="top">
+      <div class="left">
+        <h3>Sub-Total</h3>
+        <span>{{items.length}} items</span>
+      </div>
+      <p class="total">${{total}}</p>
+    </div>
+    <button>
+      Checkout
+    </button>
+  </footer>
+</div>
+<button (click)="openModal()" class="add">+Add</button>
+<div *ngIf="modal" class="modal">
+  <span (click)="openModal()" class="modal-fixed"></span>
+  <div class="modal-card">
+    <input id="image" type="text" placeholder="Internetdagi rasm linkini tashlang">
+    <input id="title" type="text" placeholder="Title...">
+    <input id="color" type="color">
+    <input id="ml" type="number" placeholder="ML">
+    <input id="price" type="number" placeholder="Price">
+    <button (click)="addElement()">Kiritish</button>
+  </div>
+</div>
